@@ -1,0 +1,159 @@
+﻿Önce blank solution açtım
+sonra bir web api projesini add new project ile ekledim
+sonra solution a bir class librarry project ekledim
+	entities klasörü içerisine 4 tane class- modellerimiz yanientitilerimiz ekledim--
+		Country
+		Department
+		Employee
+		Folder
+	bunları internal den public e çektim
+-
+şimdi webapideki controllerleri ooluşturalım
+	mvc değil düz api empty controller oluşturdum
+	weatherleri silldim
+-
+solutionda dataaccess için classlibrary project açalım
+
+	abstract ve concrete klsaörler olusturalim
+
+
+-
+Core için class library
+
+	içerisine data access klasörü
+		içerisine cocnrete ve abstract
+				
+				conncrete içerisine
+						Dapper ve EntityFrameWork klasörleri oluşturalim
+						ef içerisne-EfEntityBaseRepository clası-public
+
+				absrtact ta da IBaseRepository-IEntityRepository'nin muadili -public interface
+
+	core entities içerisine IDTO VE IEntity claslları-public tabiki
+
+Ientityrepository-IBASEREPOSİTORY icerisindeki kodları ve interfacein where koşulunu recap projemden baktım
+
+-
+Business Katmanını  olusturalim-clas library project ile
+	Abstract  ve Concrete clasları
+		abstract içerisine 4 controller için 4 interface-->public yap
+	concrete içerisine managerleri
+			4 managerini olustur public yap interfaceine yani IService lerine bağla
+			-
+-
+Entitylerin prop ertylerini olustur
+ve interfacei  olan IEntity i bağla==> sen bir IEntity sin
+IEntity şimdi boş ama lazım olabilir
+
+-
+sıra controllerlarda 
+
+	add,update deletelerini yazmakta
+		once tum controller için 
+				 dependency sini yap
+					ctorlamadan once service için ctrl + nokta ile businesstan referansı al
+					sonnra bunu ctorla
+					bunu her 4  controlelrrda yaptim
+		sonra countries controllera gel add-update-delete-get vs
+		
+			hazır kalıbı recapten aldım
+				entity nin adlarını vs düzenledim
+					burada methodları ctrl+nokta ile service de otomatik oluşturttum
+
+							NOT: FAZLA OLACAK AMA METHOD TURLERINI DATA VE IDATA RESULT  şeklinde yapmak için
+								core utilities results klasörüne result tiplerimizi oluşturduk
+								daha farklı tipler oolduğunda buraya yerleştireceğiz
+								tamam
+					servicelerdeki methodlar olusturldu
+
+			4 CONTROLER A DA add update delete gget methodları countriesteki sablon alinarak olusturuldu
+---
+Sırada Data Acces katmanı var galiba
+		Abstract içerisinde 
+			I..Dal interfaceleri oluşturalım- bunları public yap
+				sen bir IBaseRepository<T> sin - yerine country,emloyee vs-tabi burada 
+										add reference to  core ve addreference to entity yaptık ctrl+nokta ile
+!!!unutma t yerine doğru şeyleri yaz
+						IBaseRepositoryde temel add-delete vs methodlar var- 
+						özel bir şey olmadıkça buraya(I.DALlara) ayrı methoda gerek yok
+
+		
+		Concrete içerisine
+			Dapper ve EntityFramework  klasörleri koydum
+
+				Ef içerisine ef...dalları oluşştur
+					employee ve folder entitiyframeworkile çalışacak
+				Dapper içerisine de
+					dapperdepartmentdal ve dappercountryDal
+
+				şimdi tereddütte kaldım-
+					Contexti ayrı ayrı yapmaya gerk yok
+					çünkü tek database var
+					fakat context - entitiy için
+
+					HOCANIN PROJESİNİ İNCELE BAĞLANTI NASIL ÇÖZ- VEYA VİDEOLARDAN
+						ŞİMDİ HOCANIN PROJESİNDE 2 TANE CONTEXT VAR: APPDBContext YANİ ENTİTİY GALİBa
+						ve dapperDbContext
+					ozaman Dataacces>concrete ieçrisine context klasörüaç
+										içerisine 2 farklı db context dapperdbcontext ve efcoredbcontext
+
+										-dapper in koldarını hocadan kopyaladım
+											çözmek için system.data
+														microsoft.data.sqlclient(bu  normal  sql için galiba ama dursun)
+														npgsql
+														ve microsoft.extensions.configuration u ctrl + nokta ile yükle
+
+										conncetion string için apideki appsettingte conncetion  stirng lazım
+										hocanınkinden aldım -sifremiduzenledim
+
+										!!!dapperda efteki gibi-dbsetin karşılığı yokmuş
+										buna gelecem
+										!!!
+
+										-efinkini yazayım şimdi
+											efcore yüklemelisin-DİKKAT :nugetten entityframeworkcore un 5.0.17 indir 6 lar a hata veriyor
+											:sen birdbcontext sin dedik
+											protectedoverride onmodelcreateing dedik- hocadan aldım bunu
+											assembly için system.reflecctionu yükledik
+											public li <> bir kod yazdık içi boş
+											ve dbsetlerimizi ekledik--employee ve folder
+
+										
+
+									DATA-CONCRETE-EF içierisinde dalları düzenleyelim
+										!!öncesinde -core concrete-ef-efentityrepositorybase'	
+												Deneme 1 recapteki kodu ekleyeceğim
+												: dan sonraki tüm uzantıyı al implemente et
+													gelen emthodların içini tek tek kopyalayıp  doldur
+													buradaki kırmızılar çözüld
+													-
+											data concrete ef e gel
+												dallarra gir- bişeye kızdı- efin contextinde hocadan aldığım bir boş ctoru yoruma çektim düzeldi
+												diğer dalı  da yapalım
+
+									şimdi data-concrete dapperlar var
+												abstracttaki i dallarına : ile bağla
+															dependency sini ve bunun ctorunu yap
+															interfaceden methodları implemente et
+															içini dolduramadım daha
+															her iki dapper dalı dayaptım
+
+
+--
+Business concrete'de managerlere interfacelerinden gelen methodları implement et
+		managerlere geldik
+		dependency sini yapıyoruz
+		ctorladık
+		dataacces e reference istedi-verdik
+
+		4 manager e de yaptım
+		- buraya method yazıp çalıştırabilmek için daldaki methodları yazmam lazım
+
+			
+
+
+			
+						
+
+
+						dapperin dal larının methodlarını doldurmayı umutma
