@@ -149,8 +149,13 @@ Business concrete'de managerlere interfacelerinden gelen methodları implement e
 		4 manager e de yaptım
 		- buraya method yazıp çalıştırabilmek için daldaki methodları yazmam lazım
 
-			
+		- en eyisi core utilitieste result tiplerimi yapayım
+		tüm  result tiplerini hazırlladım
+		-employee de getbyid testi yapayım-error-employee service de getbyid tipini list yapmışım
 
+			
+			--dbde örnek veriler girdim -
+			bunu test etmek içinef li olan employee nin getbyid sini denedim :HATA
 
 			
 						

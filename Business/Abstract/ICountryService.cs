@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface ICountryService
     {
         IDataResult<List<Country>> GetAll();
-        IDataResult<List<Country>> GetById(int countryId);
+        IDataResult<Country> GetById(int countryId);
 
         IResult Add(Country country);
         IResult Update(Country country);

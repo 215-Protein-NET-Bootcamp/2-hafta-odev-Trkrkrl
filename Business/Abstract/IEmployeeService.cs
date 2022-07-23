@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface IEmployeeService
     {
         IDataResult<List<Employee>> GetAll();
-        IDataResult<List<Employee>> GetById(int employeeId);
+        IDataResult<Employee> GetById(int employeeId);
 
         IResult Add(Employee employee);
         IResult Update(Employee employee);

@@ -28,20 +28,21 @@ namespace Business.Concrete
         {
             throw new NotImplementedException();
         }
+        public IResult Update(Employee employee)
+        {
+            throw new NotImplementedException();
+        }
 
         public IDataResult<List<Employee>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public IDataResult<List<Employee>> GetById(int employeeId)
+        public IDataResult<Employee> GetById(int employeeId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Employee>(_employeeDal.Get(c => c.EmployeeId == employeeId));
         }
 
-        public IResult Update(Employee employee)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

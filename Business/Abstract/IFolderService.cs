@@ -12,7 +12,7 @@ namespace Business.Abstract
     public interface IFolderService
     {
         IDataResult<List<Folder>> GetAll();
-        IDataResult<List<Folder>> GetById(int folderId);
+        IDataResult<Folder> GetById(int folderId);
 
         IResult Add(Folder folder);
         IResult Update(Folder folder);

@@ -34,7 +34,7 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
-        public IDataResult<List<Country>> GetById(int countryId)
+        public IDataResult<Country> GetById(int countryId)
         {
             throw new NotImplementedException();
         }

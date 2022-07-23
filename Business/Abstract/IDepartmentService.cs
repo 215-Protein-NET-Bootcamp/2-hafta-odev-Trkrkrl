@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface IDepartmentService
     {
         IDataResult<List<Department>> GetAll();
-        IDataResult<List<Department>> GetById(int departmentId);
+        IDataResult<Department> GetById(int departmentId);
 
         IResult Add(Department department);
         IResult Update(Department department);

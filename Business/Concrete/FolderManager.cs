@@ -34,7 +34,7 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
-        public IDataResult<List<Folder>> GetById(int folderId)
+        public IDataResult<Folder> GetById(int folderId)
         {
             throw new NotImplementedException();
         }
