@@ -21,27 +21,31 @@ namespace Business.Concrete
 
         public IResult Add(Folder folder)
         {
-            throw new NotImplementedException();
+            _folderDal.Add(folder);
+            return new SuccessResult("Folder added");
         }
 
         public IResult Delete(Folder folder)
         {
-            throw new NotImplementedException();
+            return new Result(true, "Folder deleted"); ;
+        }
+        public IResult Update(Folder folder)
+        {
+            _folderDal.Update(folder);
+            return new Result(true);
         }
 
         public IDataResult<List<Folder>> GetAll()
         {
-            throw new NotImplementedException();
+            return new DataResult<List<Folder>>(_folderDal.GetAll(), true, "Folders Listed");
         }
 
         public IDataResult<Folder> GetById(int folderId)
         {
-            throw new NotImplementedException();
+            var response = _folderDal.Get(c => c.Id == folderId);
+            return new SuccessDataResult<Folder>(response);
         }
 
-        public IResult Update(Folder folder)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

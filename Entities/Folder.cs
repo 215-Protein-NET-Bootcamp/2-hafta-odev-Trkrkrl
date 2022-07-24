@@ -9,8 +9,10 @@ namespace Entities
 {
     public class Folder : IEntity
     {
-        public int FolderId { get; set; }
-        public int EmpId { get; set; }
+        public int Id { get; set; }
         public string AccessType { get; set; }
+        public int EmployeeId { get; set; }
+      
+        public bool IsDeleted { get; set; }
     }
 }

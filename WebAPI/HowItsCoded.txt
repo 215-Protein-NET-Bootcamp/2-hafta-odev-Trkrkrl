@@ -151,11 +151,56 @@ Business concrete'de managerlere interfacelerinden gelen methodları implement e
 
 		- en eyisi core utilitieste result tiplerimi yapayım
 		tüm  result tiplerini hazırlladım
+
 		-employee de getbyid testi yapayım-error-employee service de getbyid tipini list yapmışım
 
 			
 			--dbde örnek veriler girdim -
 			bunu test etmek içinef li olan employee nin getbyid sini denedim :HATA
+			hatanın kaynağı startup cs teki singleton lardı
+			sıradaki hata exentitiyrepobase de context hatası-
+									çözüm deneme 1 - startupta cpnfigure services içerisine
+									hem db seçmeli hem de contextli if else koud
+									hocadan aldım
+										bu da usesql ve npgsql da kızdı
+											nuget gerekli 1. ms efcore sql (5 in son sürümü) ve npgsqlefcore.postgre  nugetlerini kkur
+
+											-dataya yüklü postgrre nugetin versiyonu 5li lere cektim
+											oguzcandan yardım aldım
+											startupcs teki hocadanaldığım db seçimli ifelsi kaldırdım
+											bunun yerine efcordbcontextte confiuration manager kullandım
+											dn adım yanlışmış düzeltiyorum
+											OK
+											Şimdi Employee doesnt exist hatası aldım-muhtemelen Büyük kçük harf hatası
+
+											-- burada oğuzdan yardım aldım
+													neler yapıldı
+													DByi elle oluşturmamdan kaynaklı sıkıntılar vardı
+													migration ile dboluşturma kararı aldık
+													migrationile ilgili birkaç nuget yüklendi ==>efcore.design ve efcore.tools nugetleri
+													ilerde lazım olacağı için country entitisine Icollection departments yazdık
+													yanlidep collectionu var
+													bunun gibi diğer nesenlere de uyguladık
+													I entitiy de isDeleted propu oluşturduk
+													tüm entitiylere implemente ettik
+													Efcoredbcontextte sadece efdekiler değil hepsi için dbset yazdık ki migrationla düzgün çıksın
+													Tablo adlarını hem .net hem db tarafında çoğul isimlerle cuintries gibi yaptık
+
+													consoledan Add-Migration mig_1 şeklinde yaptık , bir sonraki mig de mig_2 şeklinde gideceksin
+													mig kayıtları dosyada tutuluyor
+
+													migration ile tüm tablolar otomatik  bağlantılı oluştu
+		--employeeGetbyid testi tamam
+		diğer methodları yapayım
+		recapten ilham al
+		employee ve folderin manager methodlarını doldurdum
+		-entitulerdeki Icollection vs - oğuzhanın yazdıklarını sildilm add işleminde gereksiz karmaşıklık yaratıyordu
+		add ve get ler çalışıyor
+		-ef için managerler tamam -
+
+		3.commit
+
+		
 
 			
 						

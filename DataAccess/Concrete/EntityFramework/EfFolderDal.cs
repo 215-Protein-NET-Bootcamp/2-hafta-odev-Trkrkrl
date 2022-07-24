@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfFolderDal : EfEntityBaseRepository<Folder, EfCoreDbContext>, IFolderDal
+    public class EfFolderDal : EfEntityRepositoryBase<Folder, EfCoreDbContext>, IFolderDal
     {
 
     }

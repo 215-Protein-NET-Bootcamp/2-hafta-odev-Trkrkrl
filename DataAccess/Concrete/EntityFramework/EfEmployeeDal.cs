@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfEmployeeDal:EfEntityBaseRepository<Employee,EfCoreDbContext>,IEmployeeDal
+    public class EfEmployeeDal : EfEntityRepositoryBase<Employee,EfCoreDbContext>, IEmployeeDal
     {
-
+     
     }
 }
