@@ -2,6 +2,7 @@ using Business.Abstract;
 using Business.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.Context;
+using DataAccess.Concrete.Dapper;
 using DataAccess.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +33,16 @@ namespace WebAPI
             //--services-
             services.AddSingleton<IEmployeeService, EmployeeManager>();
             services.AddSingleton<IEmployeeDal, EfEmployeeDal>();
+            
+            services.AddSingleton<IFolderService, FolderManager>();
+            services.AddSingleton<IFolderDal, EfFolderDal>();
+
+            services.AddSingleton<DapperDbContext>();//bu onemli koymazsan dapperdakilere baglanamaz
+            services.AddSingleton<ICountryService, CountryManager>();
+            services.AddSingleton<ICountryDal, DapperCountryDal>();
+
+            services.AddSingleton<IDepartmentService, DepartmentManager>();
+            services.AddSingleton<IDepartmentDal, DapperDepartmentDal>(); 
 
 
             services.AddControllers();

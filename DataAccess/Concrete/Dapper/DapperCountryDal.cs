@@ -21,7 +21,7 @@ namespace DataAccess.Concrete.Dapper
 
         public void Add(Country entity)
         {
-            throw new NotImplementedException();
+            //var query="INSESSRT INTO dbo."
         }
 
         public void Delete(Country entity)

@@ -199,6 +199,28 @@ Business concrete'de managerlere interfacelerinden gelen methodları implement e
 		-ef için managerler tamam -
 
 		3.commit
+		---------------------------------
+		foldersta hata aldık
+			dünkü hata
+			singleton eklemedik
+			dapperlearınki de dahil singletonları ekledim
+			fakat dapperlıların singleton hatası aldık
+			dapperdbcconxtin de kendi singletonunu ekleyince düzeldi
+
+				
+		 pzts yapılacaklar-
+			controllerları kontrol et->Country ve department ok
+			contextteki -  dapper dbcontext- hocadaki gibi- simdilik sıkınntı yok
+			dapper dal-->
+						dataacces abstarctta department ve country de kod yazmaya gerekyok
+						concrete'de->
+									dallarda sorgu methodları  yazacağız
+													buradaki usingli methodlar ile dapperdbcontextteki createconnecction a bağlanacağız
+
+			service
+			manager
+			
+			ayrica employee getbyid methodunda-folder listini country ve department ini getireceğiz
 
 		
 

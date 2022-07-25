@@ -42,8 +42,8 @@ namespace Business.Concrete
 
         public IDataResult<Folder> GetById(int folderId)
         {
-            var response = _folderDal.Get(c => c.Id == folderId);
-            return new SuccessDataResult<Folder>(response);
+            
+            return new SuccessDataResult<Folder>(_folderDal.Get(c => c.Id == folderId));
         }
 
         
