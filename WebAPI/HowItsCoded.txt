@@ -216,6 +216,13 @@ Business concrete'de managerlere interfacelerinden gelen methodları implement e
 						concrete'de->
 									dallarda sorgu methodları  yazacağız
 													buradaki usingli methodlar ile dapperdbcontextteki createconnecction a bağlanacağız
+													dappercountrydal ile baslayalim
+											---ara not Dapperi dal katmanına nuget yükledim
+													devam
+													add methodunu yaptım
+													managerde try catchli add methodumuzu deneyelim
+													doğru query yazma tarzını buldum-add calisiyor
+
 
 			service
 			manager

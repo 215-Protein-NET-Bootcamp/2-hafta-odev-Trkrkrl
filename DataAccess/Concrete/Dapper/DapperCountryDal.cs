@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstract;
+﻿using Dapper;
+using DataAccess.Abstract;
 using DataAccess.Concrete.Context;
 using Entities;
 using System;
@@ -19,12 +20,30 @@ namespace DataAccess.Concrete.Dapper
             _dapperDbContext = dapperDbContext;
         }
 
-        public void Add(Country entity)
+        public async void Add(Country country)
         {
-            //var query="INSESSRT INTO dbo."
+            var query= "INSERT INTO \"Countries\" (\"Name\",\"Continent\",\"Currency\",\"IsDeleted\")"+
+                "VALUES(@Name,@Continent,@Currency,@IsDeleted)";
+            var parameters = new DynamicParameters();
+
+            parameters.Add("Name",country.Name);
+            parameters.Add("Continent", country.Continent);
+            parameters.Add("Currency", country.Currency);
+            parameters.Add("IsDeleted", country.IsDeleted);
+
+            using (var connection = _dapperDbContext.CreateConnection())
+            {
+                connection.Open();
+                await connection.ExecuteAsync(query, parameters);
+            }
+
         }
 
-        public void Delete(Country entity)
+        public void Delete(Country country)
+        {
+            throw new NotImplementedException();
+        }
+        public void Update(Country country)
         {
             throw new NotImplementedException();
         }
@@ -39,9 +58,6 @@ namespace DataAccess.Concrete.Dapper
             throw new NotImplementedException();
         }
 
-        public void Update(Country entity)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

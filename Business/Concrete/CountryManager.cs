@@ -21,7 +21,16 @@ namespace Business.Concrete
 
         public IResult Add(Country country)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _countryDal.Add(country);
+                return new SuccessResult("Country Added Successfully");
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Country Adding Error");
+            }
         }
 
         public IResult Delete(Country country)
