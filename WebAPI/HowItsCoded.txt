@@ -284,22 +284,36 @@ Business concrete'de managerlere interfacelerinden gelen methodları implement e
 					update tam calısmıyor gelince bakacam
 					--commit-7---
 
+
 						
 					
-						
-
-
-
-
-
-					
+				
 			
 			ayrica employee getbyid methodunda-folder listini country ve department ini getireceğiz
 			entitylerin status??? -migrate edilecek-dapperdaki update methodlarda düzeltilecek
+			
+			ödevde son istenilen: Employe id ile yapilan api call da(getby id)
+
+								Yetkili oldugu folder listesini,
+								calistigi departmanlari ve
+								country bilgilerini listeleyen bir api hazirlayiniz.
+								
+								Yani getemployeedetailsby id bize dto ile cevap verecek 
+								şöyle  planlayalım
+								core entities IDto :boş -ok
+								entities concrete DTOs->EmployeeDetailDto
+														içini doldur:
+															Countryname
+															Departmentname
+															list of folders
+															proplarini yaz-ok
+								webapide-getdetailsbyid methodu-ok
+								servicede getdetailsbyid methodu-ok
+								efemployee dalda bunun sorgulu methodu-ok
+								bu method başlıüımı IDalda da yaz
+								bunu da managerdeki yeni  methodda dönüş tipini hem method başlığında hem de içerisinde Empployee dto vereyim-ok
+
+								dtodaki ve webapideki ufak 1-2 yazımmhataısnı düzeltiim - çalışıyor
+								--commit8--
 		
 
-			
-						
-
-
-						dapperin dal larının methodlarını doldurmayı umutma

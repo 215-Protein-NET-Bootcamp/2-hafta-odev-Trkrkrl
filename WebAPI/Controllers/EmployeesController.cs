@@ -36,6 +36,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("getdetailsbyid")]
+        public IActionResult GetDetailsById(int employeeId)
+        {
+            var result = _employeeService.GetDetailsById(employeeId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
 
         //post-add,update ,delete
         [HttpPost("add")]

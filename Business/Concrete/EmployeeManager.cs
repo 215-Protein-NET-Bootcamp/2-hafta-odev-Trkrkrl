@@ -2,6 +2,7 @@
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,6 +47,9 @@ namespace Business.Concrete
             return new SuccessDataResult<Employee>(response);
         }
 
-       
+        public IDataResult<List<EmployeeDetailDto>> GetDetailsById(int employeeId)
+        {
+            return new SuccessDataResult<List<EmployeeDetailDto>>(_employeeDal.GetDetailsById(c => c.EmployeeId == employeeId));
+        }
     }
 }

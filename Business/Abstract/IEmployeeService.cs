@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,6 @@ namespace Business.Abstract
         IResult Update(Employee employee);
 
         IResult Delete(Employee employee);
+        IDataResult<List<EmployeeDetailDto>> GetDetailsById(int employeeId);
     }
 }
