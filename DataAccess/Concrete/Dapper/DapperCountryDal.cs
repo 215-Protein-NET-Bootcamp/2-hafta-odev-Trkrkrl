@@ -41,14 +41,7 @@ namespace DataAccess.Concrete.Dapper
 
         public async void Delete(Country country)//dikkat buradaki methodlar async olmalı ki execute async ler calissin
         {
-          /*  var deleteQuery = "Delete  From \"Countries\"  WHERE (\"Id\")" +
-                "VALUES(@Id)";
-
-
-            var parameters = new DynamicParameters();
-
-            parameters.Add("Id", country.Id);
-            */
+          
             using (var connection = _dapperDbContext.CreateConnection())
             {
                 connection.Open();
@@ -60,7 +53,7 @@ namespace DataAccess.Concrete.Dapper
         }
         public async Task Update(Country country)
         {
-            //update date e gerek var mı-veya updated diye satatus göstermesine
+           
                 var updateQuery = "UPDATE \"Countries\" (\"Name\",\"Continent\",\"Currency\")" +
                 "VALUES(@Name,@Continent,@Currency)";
 
@@ -81,7 +74,7 @@ namespace DataAccess.Concrete.Dapper
 
 
             
-            //update methodunu daha yapmadık-içerisini yapcaz- addmi ne gelecekse bulacaz 
+            
             
         }
 

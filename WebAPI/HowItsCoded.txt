@@ -276,6 +276,15 @@ Business concrete'de managerlere interfacelerinden gelen methodları implement e
 							sil methodunu düz sil yap-ok
 							migrate-ok
 					-commit6
+					şimdi  department ı yapak
+					dapper departmentdal-ok
+					dbusinesstaki department manager-ok
+
+
+					update tam calısmıyor gelince bakacam
+					--commit-7---
+
+						
 					
 						
 

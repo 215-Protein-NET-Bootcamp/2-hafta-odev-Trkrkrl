@@ -21,27 +21,39 @@ namespace Business.Concrete
 
         public IResult Add(Department department)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _departmentDal.Add(department);
+                return new SuccessResult("department Added Successfully");
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("department Adding Error");
+            }
         }
 
         public IResult Delete(Department department)
         {
-            throw new NotImplementedException();
+            _departmentDal.Delete(department);
+            return new Result(true, "department Deleted");
         }
 
         public IDataResult<List<Department>> GetAll()
         {
-            throw new NotImplementedException();
+            return new DataResult<List<Department>>(_departmentDal.GetAllAsync().Result, true, "Departments Listed");
         }
 
         public IDataResult<Department> GetById(int departmentId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Department>(_departmentDal.GetByIdAsync(departmentId).Result);
+
         }
 
         public IResult Update(Department department)
         {
-            throw new NotImplementedException();
+            _departmentDal.Update(department);
+            return new Result(true);
         }
     }
 }
