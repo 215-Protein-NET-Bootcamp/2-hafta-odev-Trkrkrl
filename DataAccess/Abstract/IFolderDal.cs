@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IFolderDal: IBaseRepository<Folder>
+    public interface IFolderDal: IBaseRepository<Folder>,IEfDal<Folder>
     {
     }
 }

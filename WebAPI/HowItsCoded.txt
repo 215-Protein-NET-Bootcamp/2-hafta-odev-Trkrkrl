@@ -187,7 +187,7 @@ Business concrete'de managerlere interfacelerinden gelen methodları implement e
 													Tablo adlarını hem .net hem db tarafında çoğul isimlerle cuintries gibi yaptık
 
 													consoledan Add-Migration mig_1 şeklinde yaptık , bir sonraki mig de mig_2 şeklinde gideceksin
-													mig kayıtları dosyada tutuluyor
+													mig kayıtları dosyada tutuluyor-update i unutma update-database
 
 													migration ile tüm tablolar otomatik  bağlantılı oluştu
 		--employeeGetbyid testi tamam
@@ -222,13 +222,71 @@ Business concrete'de managerlere interfacelerinden gelen methodları implement e
 													add methodunu yaptım
 													managerde try catchli add methodumuzu deneyelim
 													doğru query yazma tarzını buldum-add calisiyor
+													-5.commiti attım-
+													countrynini diğer  methodalarını yazalım
+													-
+													delete - update ve get e bağlı çünkü id ile elemanı aıp sattüsünü deleted true yapacaz
+													önce getby id yapacaz
+
+													fakat get methodum farklı calisiyor
+
+													IBasedeki dappera giden ve entititye gieden methodalrı - IDallara giderken ayırmalıyım
+													yani ? IBaseden 2 şer tane alıp
+													dalda =>ef'e ve Dappper'a ayrı interfacelerle yan abseler sunarım
+													IEFDAL VE IDAPPERDAL
+													bunları (IEFDAL ı folder ve employee e) ve(IDAPPERDAL ı department ve country e ) virgül ile ekledim
+													dataccess-concrete dapper- dapper dallara interface i implemente ettim ve geereksiz olan methodları sildim
+													dapperdallardaki methodlarının async lerini ekle mutlaka
+
+													şöyle bir problem çıktı-> dapperda update methodu saync istiyor-zorunlu değil ama
+															az önceki ayırma işlemi de benzer problem kaynaklı
+															Core'daki base repodan ortak diye adlığımız methodlar ortak değilmiş
+															update i  de dal katmanlarına indireceğim
+															ok
+													delete->isdeleted i güncellemek gerektiriyor=> updatede ise gelenin is deleteedini ayarlayacağız
+														peki gelenin silinmek için gelen mi yoksa normal update mi nasıl anlayacağız
+														-silme tarihi yazarak göreibliriz
+														-bunu tüm entitilere koymak gerekecek =>deleted date i ->IEntity e koyalım -ok
+																								tüm entitylere implemente edelim	-ok
+																								migrate edelim-ok
+																								update edelim sonra-ok
 
 
-			service
-			manager
+																								update date-Ientity-entities-migrate-6
+																								
+
+
+
+			service-ok
+			country manager
+						methodları yazalım
+						getbyid hata ooldu-telegramdan destek aldım-saolsun emir-
+						getbyiddeki bu sorunun cevabı yorumunda yazıyor
+						-
+						IDapperdal daki getallasync in dönüşünü  IEnumarable dean  list e aldım- 
+						dappercountrydaltda da dönüşünü result=>reslult.tolist() yaptım
+						-
+						çalıştı
+						fakat apiyi çalıştırınca-> swaggerda  methodların bodysinde - date kısımları  var ve bunları doldurmak sıkıntı
+						-bence bu soft deleti kaldırayım- soft delet için gerekli işlemler SQL tarafında yapılsın daha iyi-onu da şimdi yapamam
+						-Deleted date ve updatede date'i
+							Ientityden sil-ok
+							entitylerden sil-ok
+							dapper countrydaldaki methodlardan sil-ok
+							sil methodunu düz sil yap-ok
+							migrate-ok
+					-commit6
+					
+						
+
+
+
+
+
+					
 			
 			ayrica employee getbyid methodunda-folder listini country ve department ini getireceğiz
-
+			entitylerin status??? -migrate edilecek-dapperdaki update methodlarda düzeltilecek
 		
 
 			

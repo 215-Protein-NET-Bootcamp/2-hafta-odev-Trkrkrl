@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IDepartmentDal:IBaseRepository<Department>
+    public interface IDepartmentDal:IBaseRepository<Department>,  IDapperDal<Department>
     {
     }
 }

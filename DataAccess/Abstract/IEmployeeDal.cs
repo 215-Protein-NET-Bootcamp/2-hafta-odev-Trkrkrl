@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IEmployeeDal: IBaseRepository<Employee>
+    public interface IEmployeeDal: IBaseRepository<Employee>,IEfDal<Employee>
     {
     }
 }

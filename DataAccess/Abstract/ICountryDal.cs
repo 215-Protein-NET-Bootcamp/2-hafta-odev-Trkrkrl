@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface ICountryDal: IBaseRepository<Country>
+    public interface ICountryDal: IBaseRepository<Country>,IDapperDal<Country>
     {
         // IBaseRepositoryde temel methodlar var- özel bir şey olmadıkça buraya ayrı methoda gerek yok
         

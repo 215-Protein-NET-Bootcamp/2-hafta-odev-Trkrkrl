@@ -27,7 +27,7 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("getbypaymentid")]
+        [HttpGet("getbyid")]
         public IActionResult GetById(int countryId)
         {
             var result = _countryService.GetById(countryId);

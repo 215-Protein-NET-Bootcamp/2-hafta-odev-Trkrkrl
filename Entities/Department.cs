@@ -13,6 +13,8 @@ namespace Entities
         public string DepartmentName { get; set; }
         public int CountryId { get; set; }
        
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; }=false;
+       
+
     }
 }

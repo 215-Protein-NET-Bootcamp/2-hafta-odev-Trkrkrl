@@ -13,8 +13,11 @@ namespace Entities
         public string Name { get; set; }
         public string Continent { get; set; }
         public string Currency { get; set; }
-        public bool IsDeleted { get; set; }
-        
+        public bool IsDeleted { get; set; }=false;  
+       
+
+
+
 
 
 

@@ -10,17 +10,14 @@ namespace Core.DataAccess.Abstract
 {
     public interface IBaseRepository<T> where T : class, IEntity, new()
     {
-
-        List<T> GetAll(Expression<Func<T, bool>> filter = null);//içerisinde ....geçenleri getir fonksiyonu
-
-        T Get(Expression<Func<T, bool>> filter);//yukardakinin null olasın hali
-
+        //buradaki 2 methodu dalda efdal ve dapper dal a gönderdim
+      
+       
         void Add(T entity);
-        void Update(T entity);
+        //void Update(T entity);
         void Delete(T entity);
-
-
         
+
 
     }
 }

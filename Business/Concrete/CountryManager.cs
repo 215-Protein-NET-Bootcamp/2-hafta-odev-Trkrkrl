@@ -35,22 +35,25 @@ namespace Business.Concrete
 
         public IResult Delete(Country country)
         {
-            throw new NotImplementedException();
+            _countryDal.Delete(country);
+            return new Result(true, "Country Deleted");
+        }
+        public IResult Update(Country country)
+        {
+            _countryDal.Update(country);
+            return new Result(true);
         }
 
         public IDataResult<List<Country>> GetAll()
         {
-            throw new NotImplementedException();
+            return new DataResult<List<Country>>(_countryDal.GetAllAsync().Result, true, "Countries Listed");
         }
 
-        public IDataResult<Country> GetById(int countryId)
+        public  IDataResult<Country> GetById(int countryId)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Country>( _countryDal.GetByIdAsync(countryId).Result);//result yazınca çalıştı
         }
 
-        public IResult Update(Country country)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

@@ -29,17 +29,19 @@ namespace DataAccess.Concrete.Dapper
             throw new NotImplementedException();
         }
 
-        public Department Get(Expression<Func<Department, bool>> filter)
+        
+
+        public Task<List<Department>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public List<Department> GetAll(Expression<Func<Department, bool>> filter = null)
+        public Task<Department> GetByIdAsync(int entityId)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Department entity)
+        public Task Update(Department entity)
         {
             throw new NotImplementedException();
         }

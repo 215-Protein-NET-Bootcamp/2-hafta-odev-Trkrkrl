@@ -13,6 +13,6 @@ namespace Entities
         public string AccessType { get; set; }
         public int EmployeeId { get; set; }
       
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; }=false;  
     }
 }
