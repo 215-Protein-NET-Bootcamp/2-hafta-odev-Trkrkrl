@@ -1,1 +1,2 @@
--henuz tamamlayamadim-
+Tum odev calsiyor
+Resimler ve aciklamalar gun icerisinde yuklenir
